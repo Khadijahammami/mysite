@@ -1,0 +1,14 @@
+<!-- blog/creer_une_publication.html -->
+{% extends 'blog/base.html' %}
+{% block title %}Créer une nouvelle Publication{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Créer une nouvelle Publication</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Créer</button>
+    </form>
+</div>
+{% endblock %}

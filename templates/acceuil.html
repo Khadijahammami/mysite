@@ -1,0 +1,28 @@
+{% extends "magasin/base.html" %}
+{% block content %}
+<!DOCTYPE html">
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Création d&#39;un design étape par étape - Etape n°1 : Le code xhtml</title>
+</head>
+    <body>
+        <h1 id="header" class="text-primary text-center my-5"><span>Colored Design</span></h1>
+        <div style="min-height: 60vh; display: flex; flex-direction: column; justify-content: center;">
+        <div id="container">
+            <nav>
+                <div id="menu" class="d-flex justify-content-center gap-5">
+                    <a class="btn btn-outline-primary" href="/magasin/">Application n°1 : Magasin</a>
+                    <a class="btn btn-outline-primary" href="/blog/">Application n°2 : Blog</a>
+                </div>
+            </nav>
+            {% comment %} <div id="contenu">
+                <h2>Un titre</h2>
+                <p>Un paragraphe</p>
+            </div>
+            <p id="footer">Base de Page de Votre Site Web Django</p> {% endcomment %}
+        </div>
+    </div>
+    </body>
+</html>
+{% endblock %}

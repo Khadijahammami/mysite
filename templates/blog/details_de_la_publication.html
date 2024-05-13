@@ -1,0 +1,16 @@
+<!-- blog/details_de_la_publication.html -->
+{% extends 'blog/base.html' %}
+{% block title %}{{ post.titre }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ post.titre }}</h1>
+    <p>{{ post.contenu|linebreaks }}</p>
+    <p>Publié par {{ post.auteur }} le {{ post.mis_a_jour_le|date:"d M Y" }}</p>
+    {% if post.image %}
+    <a href="{{ post.image.url }}" target="_blank"><img src="{{ post.image.url }}" alt="{{ post.titre }}" style="max-width: 600px; height: auto;"></a>
+    {% endif %}
+    <a href="{% url 'post_update' slug=post.slug %}" class="btn btn-primary">Modifier</a>
+    <a href="{% url 'post_delete' slug=post.slug %}" class="btn btn-danger">Supprimer</a>
+</div>
+{% endblock %}

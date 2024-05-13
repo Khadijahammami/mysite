@@ -1,0 +1,22 @@
+{% extends 'magasin/base.html'%}
+{% block title %} Passer commande {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-12 text-center">
+        <h2 class="mt-4">Ajouter commande</h2>
+    </div>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>{{ form.totalCde.value }}</p>
+        <button type="submit" class="btn btn-primary">Enregistrer commande</button>
+    </form>
+    <h2 class="mt-5">Liste de commandes</h2>
+    <ul>
+        {% for commande in commandes %}
+            <li>{{ commande }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "magasin/base.html" %}
+{% block content %}
+<form action="{%url 'logout'%}" method="POST">
+    <h2>Vous êtes déconnecté. </h2>
+    <a href="{% url 'login' %}">Se reconnecter</a>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!-- blog/liste_des_publications.html -->
+{% extends 'blog/base.html' %}
+{% block title %}Liste des Publications{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Liste des Publications</h1>
+    <ul class="list-group">
+        {% for post in object_list %}
+        <li class="list-group-item">
+            <h2><a href="{% url 'post_detail' slug=post.slug %}">{{ post.titre }}</a></h2>
+            <p>Publié le {{ post.mis_a_jour_le|date:"d M Y" }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+            {% if post.image %}
+            <a href="{% url 'post_detail' slug=post.slug %}"><img src="{{ post.image.url }}" alt="{{ post.titre }}" style="max-width: 300px; height: auto;"></a>
+            {% endif %}
+            <div>
+                <a href="{% url 'post_update' slug=post.slug %}" class="btn btn-primary">Modifier</a>
+                <a href="{% url 'post_delete' slug=post.slug %}" class="btn btn-danger">Supprimer</a>
+            </div>
+            </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item">Aucune publication disponible.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
